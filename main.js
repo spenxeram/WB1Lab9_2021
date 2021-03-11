@@ -8,7 +8,7 @@ let currencies = {
   jpy: 0,
   vnd: 0
 };
-
+let btn = document.querySelector(".btn");
 
 document.addEventListener("DOMContentLoaded", () => {
   let alertbox = document.querySelector(".alert.checking")
@@ -40,7 +40,14 @@ Object.keys(currencies).forEach((currency) => {
 
 updateCurrencies();
 // Event Listeners
+btn.addEventListener("click", () => {
+  let userinput = document.querySelector("#currency").value;
+  let useroutput = document.querySelector(".custom-request");
+  console.log(userinput);
+  useroutput.classList.add(userinput);
+  getBTCVal(userinput);
 
+})
 // AJAX call to exchange
 function getBTCVal(currency) {
   let url = `https://api.coindesk.com/v1/bpi/currentprice/${currency}.json`;
