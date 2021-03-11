@@ -18,6 +18,25 @@ let currencies = {
   }
 }
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  let i = 30;
+  setInterval(() => {
+    if(i == 3) {
+      // alert user that currency check will happen
+
+    } else if (i <= 0) {
+      updateCurrencies();
+      i = 30;
+    }
+    outputTimer(i);
+    i--;
+  }, 1000);
+
+})
+
+
+
 // on page load
 function updateCurrencies() {
 Object.keys(currencies).forEach((currency) => {
@@ -47,5 +66,9 @@ function getBTCVal(currency) {
 
 // General functions for output
 
+function outputTimer(time) {
+  let target = document.querySelector("span.time");
+  target.innerText = time;
+}
 
 // Helper functions

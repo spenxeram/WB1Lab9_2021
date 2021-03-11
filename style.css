@@ -1,0 +1,8 @@
+.jumbotron {
+    padding: 40px 0 0 0;
+}
+
+.alert.checking {
+  opacity: 0;
+  transition: opactity 300ms;
+}
