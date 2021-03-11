@@ -20,12 +20,15 @@ let currencies = {
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  let alertbox = document.querySelector(".alert.checking")
+  console.log(alertbox);
   let i = 30;
   setInterval(() => {
     if(i == 3) {
       // alert user that currency check will happen
-
+      alertbox.style.opacity = "1";
     } else if (i <= 0) {
+      alertbox.style.opacity = "0";
       updateCurrencies();
       i = 30;
     }

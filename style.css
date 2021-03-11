@@ -4,5 +4,5 @@
 
 .alert.checking {
   opacity: 0;
-  transition: opactity 300ms;
+  transition: opacity 300ms;
 }
