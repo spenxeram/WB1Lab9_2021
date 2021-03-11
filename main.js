@@ -13,7 +13,7 @@ let currencies = {
 document.addEventListener("DOMContentLoaded", () => {
   let alertbox = document.querySelector(".alert.checking")
   console.log(alertbox);
-  let i = 30;
+  let i = 29;
   setInterval(() => {
     if(i == 3) {
       // alert user that currency check will happen

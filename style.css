@@ -6,3 +6,23 @@
   opacity: 0;
   transition: opacity 300ms;
 }
+
+.green {
+  color: green;
+  animation: green 1s;
+}
+
+.red {
+  color: red;
+  animation: red 1s;
+}
+
+@keyframes red {
+  0%   {background-color: red;}
+  100% {background-color: white;}
+}
+
+@keyframes green {
+  0%   {background-color: green;}
+  100% {background-color: white;}
+}
