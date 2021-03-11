@@ -4,19 +4,10 @@
 
 // getting and setting global vars
 let currencies = {
-  usd: {
-    prev: 0,
-    current: 0
-  },
-  jpy: {
-    prev: 0,
-    current: 0
-  },
-  vnd: {
-    prev: 0,
-    current: 0
-  }
-}
+  usd: 0,
+  jpy: 0,
+  vnd: 0
+};
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -61,13 +52,28 @@ function getBTCVal(currency) {
   );
   xhr.onload = function() {
     let result = JSON.parse(this.responseText);
-    console.log(result);
+    outputCurrency(result, currency);
   }
   xhr.send();
 }
 
 
 // General functions for output
+
+function outputCurrency(result, currency) {
+  let newval = result.bpi[currency.toUpperCase()].rate_float;
+  let outputel = document.querySelector(`.${currency}`);
+  let theclass = "";
+  if(newval >= currencies[currency]) {
+    theclass = "green"
+  } else {
+    theclass = "red";
+  }
+  outputel.classList = `${currency} ${theclass}`;
+  newval = Math.round(newval);
+  currencies[currency] = newval;
+  outputel.innerText = newval.toLocaleString() + " " + currency.toUpperCase();
+}
 
 function outputTimer(time) {
   let target = document.querySelector("span.time");
